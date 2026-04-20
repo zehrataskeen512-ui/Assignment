@@ -13,12 +13,12 @@ test.describe('Scenario 1: User Login Verification', () => {
   });
 
   test('Verify User Login with Valid Credentials', async ({ page }) => {
-    console.log('Step 1: Entering username and password...');
+    console.log('1: Entering username and password.');
     
     // When: The user enters username and password
     await loginPage.login('standard_user', 'secret_sauce');
     
-    console.log('Step 2: Clicking login button...');
+    console.log('2: Clicking login button.');
     
     // Then: User should be successfully logged in
     await expect(page).toHaveURL(/.*inventory.html/);
@@ -32,6 +32,6 @@ test.describe('Scenario 1: User Login Verification', () => {
     expect(productTitle).toBe('Products');
     
     console.log('✓ Product page is visible');
-    console.log('✅ TEST PASSED: User successfully logged in and navigated to Product Page');
+    console.log('TEST PASSED: User successfully logged in and navigated to Product Page');
   });
 });

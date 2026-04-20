@@ -26,7 +26,7 @@ test.describe('Scenario 2: Place Order and Checkout', () => {
 
   test('User Places an Order and Checks Out Successfully', async ({ page }) => {
     // When: User selects a product by clicking "Add to Cart"
-    console.log('\nStep 1: Adding product to cart...');
+    console.log('\n1: Adding product to cart.');
     await productsPage.addBackpackToCart();
     
     // Verify cart badge shows 1 item
@@ -35,7 +35,7 @@ test.describe('Scenario 2: Place Order and Checkout', () => {
     console.log('✓ Product added to cart (Cart count: ' + cartCount + ')');
     
     // And: Clicks on "Cart" button
-    console.log('Step 2: Navigating to cart...');
+    console.log('2: Clicking onto cart.');
     await productsPage.goToCart();
     
     // And: Navigates to "Your Cart" page
@@ -53,15 +53,15 @@ test.describe('Scenario 2: Place Order and Checkout', () => {
     console.log('✓ Verified product in cart: ' + itemName);
     
     // And: Clicks "Checkout" button
-    console.log('Step 3: Proceeding to checkout...');
+    console.log('3: Proceeding to checkout.');
     await cartPage.proceedToCheckout();
     
     // And: Fills out checkout information
-    console.log('Step 4: Filling checkout information...');
+    console.log('4: Filling checkout information.');
     await checkoutPage.fillCheckoutInformation('John', 'Doe', '12345');
     
     // And: Clicks "Continue" button
-    console.log('Step 5: Continuing to order overview...');
+    console.log('5: Continuing to order overview.');
     await checkoutPage.continueCheckout();
     
     // And: Clicks "Finish" button after confirming order details
@@ -69,7 +69,7 @@ test.describe('Scenario 2: Place Order and Checkout', () => {
     expect(totalAmount).toContain('Total');
     console.log('✓ Order total: ' + totalAmount);
     
-    console.log('Step 6: Finishing order...');
+    console.log('6: Finishing order.');
     await checkoutPage.finishOrder();
     
     // Then: Order placed successfully with confirmation message
@@ -77,6 +77,6 @@ test.describe('Scenario 2: Place Order and Checkout', () => {
     expect(confirmationMessage).toBe('Thank you for your order!');
     
     console.log('✓ Confirmation message: ' + confirmationMessage);
-    console.log('✅ TEST PASSED: Order placed successfully!');
+    console.log('TEST PASSED: Order placed successfully!');
   });
 });

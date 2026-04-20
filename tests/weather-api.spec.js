@@ -7,11 +7,11 @@ test.describe('Scenario 3: OpenWeather API Validation', () => {
   const COUNTRY = 'PK';
 
   test('Verify temperature of Islamabad and response status code', async ({ request }) => {
-    console.log('\n🌤️ Testing OpenWeather API for Islamabad...');
+    console.log('\nTesting OpenWeather API for Islamabad.');
     
     // Check if API key is missing or still has the placeholder text
     if (!API_KEY || API_KEY === 'your_api_key_here') {
-      console.log('⚠️ Please add your OpenWeather API key to .env file');
+      console.log('Please add your OpenWeather API key to .env file');
       console.log('Get free key from: https://openweathermap.org/api');
       test.skip();
       return;
@@ -21,7 +21,7 @@ test.describe('Scenario 3: OpenWeather API Validation', () => {
     
     const response = await request.get(url);
     expect(response.status()).toBe(200);
-    console.log('✅ API Response Status: 200 OK');
+    console.log('API Response Status: 200 OK');
     
     const responseBody = await response.json();
     const temperature = responseBody.main.temp;
@@ -34,12 +34,12 @@ test.describe('Scenario 3: OpenWeather API Validation', () => {
     expect(temperature).toBeGreaterThan(-50);
     expect(temperature).toBeLessThan(60);
     
-    console.log(`\n📊 Weather in ${cityName}:`);
-    console.log(`🌡️ Temperature: ${temperature}°C`);
-    console.log(`🤔 Feels like: ${feelsLike}°C`);
-    console.log(`💧 Humidity: ${humidity}%`);
-    console.log(`☁️ Conditions: ${description}`);
+    console.log(` \n Weather in ${cityName}:`);
+    console.log(` 1.Temperature: ${temperature}°C`);
+    console.log(` 2.Feels like: ${feelsLike}°C`);
+    console.log(` 3.Humidity: ${humidity}%`);
+    console.log(` 4.Conditions: ${description}`);
     
-    console.log('\n✅ TEST PASSED: API validation successful!');
+    console.log('\nTEST PASSED: API validation successful!');
   });
 });
